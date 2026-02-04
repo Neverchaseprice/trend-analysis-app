@@ -1,6 +1,13 @@
-# app.py
+# EMERGENCY DEPENDENCY INSTALLER — работает даже без requirements.txt
+import sys
+import subprocess
+try:
+    import yfinance
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "yfinance==0.2.37", "pandas==2.1.4", "numpy==1.26.2", "matplotlib==3.8.2"])
+    import yfinance
+
 import streamlit as st
-import yfinance as yf
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
